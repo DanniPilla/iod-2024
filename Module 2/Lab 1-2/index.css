@@ -1,0 +1,38 @@
+article {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.style-me1 {
+    color: red;
+}
+
+#style-me2 {
+    color: blue;
+}
+
+.style-me1#style-me2 {
+    color: purple;
+}
+
+.my-descendants-are-styled p {
+    background-color: red;
+}
+
+.my-children-are-styled>p {
+    background-color: lightgreen;
+}
+
+.box {
+    background-color: blueviolet;
+    margin: 20px;
+    padding: 20px;
+    height: 9em !important;
+    width: 9em;
+    border: 10px solid pink;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: auto 10px;
+    border-radius: 50% ;
+}

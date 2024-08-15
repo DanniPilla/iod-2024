@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="description" content="learning forms">
+    <meta name="author" content="Daniella Pilla">
+    <title>Module 2, Lab 1</title>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="form.html">Form</a>
+    </nav>
+
+    <h1>HTML Form Example</h1>
+
+    <form method="POST" action="http://127.0.0.1:5500/form.html">
+        <div>
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name">
+        </div>
+        <div>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name">
+        </div>
+
+        <div>
+            <label>Favorite Coding Language:</label>
+            <div>
+                <input type="radio" id="html" name="coding-language" value="HTML">
+                <label for="html">HTML</label>
+            </div>
+            <div>
+                <input type="radio" id="css" name="coding-language" value="CSS">
+                <label for="css">CSS</label>
+            </div>
+            <div>
+                <input type="radio" id="javascript" name="coding-language" value="JavaScript">
+                <label for="javascript">JavaScript</label>
+            </div>
+        </div>
+
+        <div>
+            <label>Types of Vehicle:</label>
+            <div>
+                <input type="checkbox" id="car" name="vehicle" value="Car">
+                <label for="car">Car</label>
+            </div>
+            <div>
+                <input type="checkbox" id="motorbike" name="vehicle" value="Motorbike">
+                <label for="motorbike">Motorbike</label>
+            </div>
+            <div>
+                <input type="checkbox" id="bicycle" name="vehicle" value="Bicycle">
+                <label for="bicycle">Bicycle</label>
+            </div>
+        </div>
+
+        <div>
+            <label for="car-brand">Car Brand:</label>
+            <select id="car-brand" name="car-brand">
+                <option value="Toyota">Toyota</option>
+                <option value="Ford">Ford</option>
+                <option value="Honda">Honda</option>
+            </select>
+        </div>
+
+        <button type="submit">Submit form</button>
+    </form>
+</body>
+
+</html>

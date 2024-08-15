@@ -1,0 +1,121 @@
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: purple;
+}
+
+.background-1 {
+    background: #68B0AB;
+}
+
+.background-2 {
+    background: #8FC0A9;
+}
+
+.background-3 {
+    background: #C8D5B9;
+}
+
+.background-4 {
+    background: #FAF3DD;
+}
+
+.m-20 {
+    margin: 20px;
+}
+
+.h-80 {
+    height: 80px;
+}
+
+.h-400 {
+    height: 400px;
+}
+
+.w-80 {
+    width: 80px;
+}
+
+
+/* Add your answers here, do not modify the above CSS */
+
+.flex-container{
+    display:flex;
+
+}
+.flex-item-1 {
+    flex: 1; 
+}
+.flex-item-2 {
+    flex: 2; 
+}
+.flex-item-3 {
+    flex: 3; 
+}
+.flex-item-4 {
+    flex: 4; 
+}
+
+.flex-center{
+
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-space-between{
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.flex-basis-item-50{
+    flex-basis: 25%;
+}
+
+.flex-menu{
+    display: flex;
+
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    list-style: none;
+    background-color: #C8D5B9;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.flex-menu li {
+    text-align: center;
+    padding: 15px 0;
+    border-right: 3px solid #68B0AB;
+}
+
+.first-item{
+    flex: 1;
+}
+.second-item{
+    flex: 2;
+}
+.third-item{
+    flex: 2;
+}
+.fourth-item{
+    flex: 1;
+}
+.fifth-item{
+    flex: 3;
+}
+
+.flex-menu li:last-child {
+    border-right: none;
+}
+a:visited{
+    color: black;
+}

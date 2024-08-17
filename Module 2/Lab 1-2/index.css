@@ -35,4 +35,77 @@ article {
     overflow: auto;
     outline: auto 10px;
     border-radius: 50% ;
+    background-image: url('assets/img1.png');
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+.position-absolute{
+    position:absolute;
+   top: 0;
+    background-color: rgb(247, 149, 209);
+    left: 200px;
+
+}
+
+.position-relative{
+position: relative;
+background-color: rgb(219, 27, 107);
+right: 0px;
+}
+
+.position-sticky{
+    position: sticky;
+    background-color:rgb(203, 148, 214);
+    top: 0px;
+}
+
+.text-style{
+    color:blue;
+    font-size: larger;
+    line-height:normal;
+    font-weight: 400;
+    font-family: "Grey Qo", cursive;
+    font-style: normal;
+    text-align: center;
+    letter-spacing: normal;
+    word-spacing: 20px;
+    text-transform: capitalize;
+    text-decoration: underline;
+}
+
+a:link{
+    color:brown;
+    font-size: smaller;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: darkblue;
+    text-decoration:dashed;
+}
+
+a:visited {
+    color: purple;
+    font-style: italic;
+}
+
+.calc-style{
+width: 100vw;
+background-color: blue;
+width: calc(100vw - 100px);
+}
+
+.fixed-width-col{
+    width: 350px;
+    display: inline-block;
+}
+
+.fluid-col {
+    display: inline-block;
+    width: calc(100% - 350px);
 }

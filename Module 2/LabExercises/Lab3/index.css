@@ -43,45 +43,46 @@ a {
 
 /* Add your answers here, do not modify the above CSS */
 
-.flex-container{
-    display:flex;
-
+.flex-container {
+    display: flex;
 }
+
 .flex-item-1 {
-    flex: 1; 
+    flex: 1;
 }
+
 .flex-item-2 {
-    flex: 2; 
+    flex: 2;
 }
+
 .flex-item-3 {
-    flex: 3; 
+    flex: 3;
 }
+
 .flex-item-4 {
-    flex: 4; 
+    flex: 4;
 }
 
-.flex-center{
-
+.flex-center {
     justify-content: center;
     align-items: center;
 }
 
-.flex-space-between{
+.flex-space-between {
     justify-content: space-between;
     align-items: flex-end;
 }
 
-.flex-wrap{
+.flex-wrap {
     flex-wrap: wrap;
 }
 
-.flex-basis-item-50{
+.flex-basis-item-50 {
     flex-basis: 25%;
 }
 
-.flex-menu{
+.flex-menu {
     display: flex;
-
     padding: 0;
     margin: 0;
     font-weight: bold;
@@ -97,25 +98,39 @@ a {
     border-right: 3px solid #68B0AB;
 }
 
-.first-item{
+.first-item {
     flex: 1;
+    flex-shrink: 1;
+
 }
-.second-item{
+
+.second-item {
     flex: 2;
+    flex-shrink: 1;
 }
-.third-item{
+
+.third-item {
     flex: 2;
+    flex-shrink: 1;
 }
-.fourth-item{
+
+.fourth-item {
     flex: 1;
+    flex-shrink: 1;
 }
-.fifth-item{
+
+.fifth-item {
     flex: 3;
+    flex-shrink: 1;
 }
 
 .flex-menu li:last-child {
     border-right: none;
 }
-a:visited{
+
+a:link {
+    color: black;
+}
+a:visited {
     color: black;
 }

@@ -88,14 +88,21 @@ const westley = {
         inigo.greeting(westley)
         inigo.greeting(rugen)
 
-
+//7
         const basketballGame = {
             score: 0,
             fouls:0,
+            
             freeThrow() {
             this.score++;
             return this;
             },
+            
+            foul(){
+            this.fouls++;
+            return this;
+            },
+
             basket() {
             this.score += 2;
             return this;
@@ -115,3 +122,26 @@ const westley = {
         }
             //modify each of the above object methods to enable function chaining as below:
             basketballGame.basket().freeThrow().freeThrow().basket().threePointer().halfTime().fullTime();
+
+            //8
+
+            const sydney = {
+                name: 'Sydney',
+                population: 5_121_000,
+                state: 'NSW',
+                founded: '26 January 1788',
+                timezone: 'Australia/Sydney'
+                }
+
+            const goldCoast = {
+                name: 'Gold Coast',
+                population: 743000,
+                state: 'QLD',
+                founded: '26 January 1788',
+                timezone: 'Australia/QLD'
+            }
+
+            function getCity (sydney) {
+                console.log(sydney.name, sydney.population, sydney.state, sydney.founded, sydney.timezone);
+
+            }

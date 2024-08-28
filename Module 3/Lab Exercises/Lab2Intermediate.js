@@ -7,3 +7,13 @@ function gandalf (string){
  }
 
 console.log (gandalf(string));
+
+//2
+
+function truncate(str, max){
+    str = 
+    max = 
+
+    if 
+
+}

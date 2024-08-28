@@ -17,7 +17,7 @@ null + 1 // 1
 undefined + 1 //nan because undefined cannot be converted into a valid number
 undefined == null // true
 undefined === null //false
-" \t \n" - 2 //I really dunno
+" \t \n" - 2 // tab space, new line '-2'
 
 // Which of the below are not giving the right answer? Why are they not correct? How can we
 // fix them?

@@ -1,19 +1,20 @@
 //1
-const string = "Oh... you would not part an old man from his walking stick?"
-function gandalf (string){
-   let words = string.split(' ');
-   let capitalise = words.charAt(0).toUpperCase();
-   return capitalise.concat(' ');
- }
 
-console.log (gandalf(string));
+function gandalf (str){
+  
+   let newString="";
+   let words = str.split(" ");
+
+   for (let word of words) {
+   if (newString.length != 0) {
+   newString += " ";
+ }
+ newString += word.charAt(0).toUpperCase() + word.substring(1);
+}
+return newString;
+}
+let str = "Oh... you would not part an old man from his walking stick?"
+console.log (gandalf(str));
 
 //2
 
-function truncate(str, max){
-    str = 
-    max = 
-
-    if 
-
-}

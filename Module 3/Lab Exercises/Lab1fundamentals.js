@@ -141,7 +141,33 @@ const westley = {
                 timezone: 'Australia/QLD'
             }
 
-            function getCity (sydney) {
-                console.log(sydney.name, sydney.population, sydney.state, sydney.founded, sydney.timezone);
+            function getCity (city) {
+                for (let property in city){
+                    console.log(`${property}: ${city[property]}`);
+                }
 
             }
+
+            getCity(sydney);
+            getCity(goldCoast);
+
+            //9
+
+            let teamSports = ['Hockey', 'Cricket', 'Volleyball'];
+            let dog1 = 'Bingo';
+            let cat1 = { name: 'Fluffy', breed: 'Siberian' };
+          
+            let moreSports = teamSports;
+            moreSports.push('Figure Skating')
+            moreSports.unshift('Ballet')
+            console.log(moreSports);
+
+            let dog2 = dog1;
+            dog2 = 'Lady';
+            console.log(dog2);
+
+            
+
+
+
+

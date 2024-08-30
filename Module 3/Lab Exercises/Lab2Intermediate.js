@@ -18,3 +18,31 @@ console.log (gandalf(str));
 
 //2
 
+function truncate(str1, max){
+  if (str1.length > max){
+    return "Looks like..."
+  }
+  return "Looks like meats back on the menu boys!"
+}
+let str1 = "Looks like meats back on the menu boys!"
+let max = 15
+
+console.log(truncate(str1,max))
+
+//conditional operator version
+// truncate = (str1, max) =>
+ // str1.length > max
+//? "Looks like..."
+// : "Looks like meats back on the menu boys!";
+
+//3
+
+const animals = ['Tiger', 'Giraffe']
+animals.push("Cat", "Lion")
+animals.unshift("Dog", "Bear")
+animals.sort();
+
+replaceMiddleAnimal(anim  ) 
+
+
+console.log(animals)

@@ -42,7 +42,18 @@ animals.push("Cat", "Lion")
 animals.unshift("Dog", "Bear")
 animals.sort();
 
-replaceMiddleAnimal(anim  ) 
+function replaceMiddleAnimal(animals, newValue) {
 
+  let middleIndex = Math.floor(animals.length/2);
+  animals[middleIndex] = newValue;
 
-console.log(animals)
+  return animals;
+}
+
+let newValue = 'bird'
+let updatedAnimals = replaceMiddleAnimal(animals, newValue);
+console.log(updatedAnimals);
+
+function findMatchingAnimals(beginsWith){
+  
+}

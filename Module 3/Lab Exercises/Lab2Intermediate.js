@@ -54,6 +54,39 @@ let newValue = 'bird'
 let updatedAnimals = replaceMiddleAnimal(animals, newValue);
 console.log(updatedAnimals);
 
-function findMatchingAnimals(beginsWith){
-  
+function findMatchingAnimals(animals, beginsWith){
+
+  let lowerCase = beginsWith.toLowerCase();
+
+  let matchingAnimals = animals.filter(animal =>
+    animal.toLowerCase().startsWith(lowerCase)
+  );
+  return matchingAnimals;
+
+};
+
+let beginsWith = 'D';
+let matchingAnimals = findMatchingAnimals(animals, beginsWith);
+console.log(matchingAnimals);
+
+//4
+function camelCase(cssProp){
+  let words = cssProp.split('-');
+
+
 }
+
+
+//5
+let twentyCents = 0.20
+let tenCents = 0.10
+console.log(`${twentyCents} + ${tenCents} = ${twentyCents + tenCents}`)
+// 0.2 + 0.1 = 0.30000000000000004
+
+let fixedTwenty = twentyCents.toFixed(2);
+let fixedTen = tenCents.toFixed(2);
+
+let sum = parseFloat(fixedTwenty) + parseFloat(fixedTen);
+
+console.log(`${twentyCents} + ${tenCents} = ${sum}`); 
+//they are being converted to strings and so instead of adding them as numeric values they are being concatenated as strings

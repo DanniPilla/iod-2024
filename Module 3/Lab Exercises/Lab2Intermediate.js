@@ -85,8 +85,3 @@ console.log(`${twentyCents} + ${tenCents} = ${twentyCents + tenCents}`)
 
 let fixedTwenty = twentyCents.toFixed(2);
 let fixedTen = tenCents.toFixed(2);
-
-let sum = parseFloat(fixedTwenty) + parseFloat(fixedTen);
-
-console.log(`${twentyCents} + ${tenCents} = ${sum}`); 
-//they are being converted to strings and so instead of adding them as numeric values they are being concatenated as strings

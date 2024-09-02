@@ -193,8 +193,40 @@ const colours = ['red', 'green', 'blue', 'yellow', 'orange', 'red', 'blue', 'yel
 const testScores = [55, 84, 97, 63, 55, 32, 84, 91, 55, 43]
 
 function unique(duplicatesArray) {
-
+  return [...new Set(duplicatesArray)]; //new Set(duplicatesArray) creates a Set from the duplicatesArray. A Set automatically removes any duplicate values. [...] is the spread operator that takes all the unique values from the Set and spreads them into a new array.
 }
 
 console.log(unique(colours)) // [ 'red', 'green', 'blue', 'yellow', 'orange' ]
 console.log(unique(testScores)) // [ 55, 84, 97, 63, 32, 91, 43 ]
+
+//7
+const books = [
+  { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
+  { id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 },
+  { id: 3, title: '1984', author: 'George Orwell', year: 1949 },
+  { id: 4, title: 'Brave New World', author: 'Aldous Huxley', year: 1932 },
+  { id: 5, title: 'The Catcher in the Rye', author: 'J.D. Salinger', year: 1951 },
+  ];
+
+  function getBookTitle(bookId) {
+    const book = books.find(function(b) {
+        return b.id === bookId;
+    });
+
+    // Check if a book was found
+    if (book) {
+        return book.title;
+    } else {
+        return 'Book not found';
+    }
+}
+
+console.log(getBookTitle(1))
+const bookAge = books.filter(getOldBooks);
+
+function getOldBooks(bookId){
+
+  if()
+  return bookId <= 1955;
+}
+console.log(getOldBooks(1))

@@ -200,6 +200,7 @@ console.log(unique(colours)) // [ 'red', 'green', 'blue', 'yellow', 'orange' ]
 console.log(unique(testScores)) // [ 55, 84, 97, 63, 32, 91, 43 ]
 
 //7
+//a
 const books = [
   { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
   { id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 },
@@ -222,11 +223,59 @@ const books = [
 }
 
 console.log(getBookTitle(1))
-const bookAge = books.filter(getOldBooks);
 
-function getOldBooks(bookId){
+//b
+function getOldBooks(books) {
+  // Use filter to get books written before 1950
+  const filteredBooks = books.filter(function(book) {
+      return book.year <= 1950;
+  });
 
-  if()
-  return bookId <= 1955;
+  // Use Set to convert the filtered unique values back into an array
+  const uniqueBooks = [...new Set(filteredBooks)];
+
+  return uniqueBooks;
 }
-console.log(getOldBooks(1))
+
+console.log(getOldBooks(books));
+//c
+
+function addGenre(books) {
+  return books.map(function(book) {
+    book.genre = 'classic';
+    return book;
+  });
+}
+
+const booksWithGenre = addGenre(books);
+console.log(booksWithGenre);
+
+//d
+
+//e
+
+//8
+
+const phoneBookABC = new Map() //an empty map to begin with
+phoneBookABC.set('Annabelle', '0412312343')
+phoneBookABC.set('Barry', '0433221117')
+phoneBookABC.set('Caroline', '0455221182')
+
+const phoneBookDEF = new Map(); 
+
+phoneBookDEF.set('David', '0466334455');
+phoneBookDEF.set('Emily', '0422445566');
+phoneBookDEF.set('Frank', '0499887766');
+
+console.log(phoneBookDEF);
+
+phoneBookABC.set('Caroline', '0466778899');
+
+console.log(phoneBookABC);
+
+// function printPhoneBook(contacts) {
+//   return 
+// }
+
+const phoneBook = new Map (phoneBookABC + phoneBookDEF)
+console.log(phoneBook)

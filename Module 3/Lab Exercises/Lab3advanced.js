@@ -51,13 +51,52 @@ function debounce(func, ms = 1000) { //If no delay is passed when calling deboun
         }, ms);
     };
 }
-function printMe() {
-    console.log('printing debounced message')
+function printMe(msg) {
+    console.log('printing debounced message' + msg);
     }
     printMe = debounce(printMe, 2000); //create this debounce function for a)
 
 
     //fire off 3 calls to printMe within 300ms - only the LAST one should print, after 1000ms of no calls
-    setTimeout( printMe, 100);
-    setTimeout( printMe, 200);
-    setTimeout( printMe, 300);
+    setTimeout(() => printMe('first call'), 100);
+    setTimeout(() => printMe('second call'), 200);
+    setTimeout(() => printMe('third call'), 300);
+
+    //4
+
+    function printFibonacci() {
+        let a = 0, b = 1; // Starting values for the Fibonacci sequence
+    
+        setInterval(function() {
+            console.log(b);
+            let next = a + b;
+            a = b;
+            b = next;
+        }, 1000); // Output a Fibonacci number every 1000ms (1 second)
+    }
+    
+    printFibonacci(); // Start printing Fibonacci numbers
+
+    //5 
+    //it is failing because we need to use call in order for the object to retain the same context I think
+
+    let car = {
+        make: "Porsche",
+        model: '911',
+        year: 1964,
+        description() {
+        
+        console.log(`This car is a ${this.make} ${this.model} from ${this.year}`);
+        }
+        };
+        car.description(); //works
+      
+
+        setTimeout(function() {
+            car.description();
+        }, 200);
+
+        let carClone = Object.assign({}, car); // Create a shallow copy of the car object
+carClone.year = 2024; // Change the year for the clone
+
+carClone.description(); // This will print the new year 2024

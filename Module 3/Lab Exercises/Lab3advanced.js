@@ -92,11 +92,35 @@ function printMe(msg) {
         car.description(); //works
       
 
-        setTimeout(function() {
-            car.description();
-        }, 200);
-
+        setTimeout(car.description.bind(car), 200);
+//b
         let carClone = Object.assign({}, car); // Create a shallow copy of the car object
 carClone.year = 2024; // Change the year for the clone
 
 carClone.description(); // This will print the new year 2024
+
+//c 
+//The delayed description() call will still use the original values because setTimeout(car.description, 200) creates a reference to the car.description method as it existed at the time of the call. 
+//It doesn’t get the updated values from the cloned object (newCar), because the method is still bound to the original object (car).
+
+//e
+let anotherCar = { ...car, make: 'Clown Car' }; // Clone and override the make property
+anotherCar.description(); // Output: This car is a Clown Car 911 from 1964
+
+// Test the bound description method
+setTimeout(car.description.bind(car), 200); // Output: This car is a Porsche 911 from 1964
+
+//6
+//a
+Function.prototype.delay = function(ms) {
+    let func = this; // Save the reference to the original function
+    return function(...args) { // Return a new function that takes parameters
+      setTimeout(() => func.apply(this, args), ms); // Delay execution with setTimeout
+    };
+};
+
+
+function multiply(a, b) {
+    console.log( a * b );
+    }
+    multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds

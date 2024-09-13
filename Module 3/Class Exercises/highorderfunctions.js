@@ -42,3 +42,25 @@ console.log( Object.getOwnPropertyNames(Object.getPrototypeOf(str)) ) //inherite
 const date = new Date(); // simple empty date object
 console.log( Object.getPrototypeOf(date) === Date.prototype ) // true: its prototype is Array prototype
 console.log( Object.getOwnPropertyNames(Object.getPrototypeOf(date)) )
+
+//error handling example
+
+async function getData() {
+    try {
+      const response = await fetch("https://reqres.in/api/users"); // this line won't run until promise resolves
+      // console.log("RES", response);
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! ${response.status}`);
+      }
+  
+      const json = await response.json(); // convert stream to JSON
+      console.log("JSON", json.data);
+    } catch (err) {
+      console.log(`Failed: ${err}`);
+    } finally {
+      console.log("Finished!!");
+    }
+  }
+  
+  getData();

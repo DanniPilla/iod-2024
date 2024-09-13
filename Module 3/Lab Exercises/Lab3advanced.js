@@ -62,20 +62,20 @@ function printMe(msg) {
     setTimeout(() => printMe('second call'), 200);
     setTimeout(() => printMe('third call'), 300);
 
-    //4
+//     //4
 
-    function printFibonacci() {
-        let a = 0, b = 1; // Starting values for the Fibonacci sequence
+//     function printFibonacci() {
+//         let a = 0, b = 1; // Starting values for the Fibonacci sequence
     
-        setInterval(function() {
-            console.log(b);
-            let next = a + b;
-            a = b;
-            b = next;
-        }, 1000); // Output a Fibonacci number every 1000ms (1 second)
-    }
+//         setInterval(function() {
+//             console.log(b);
+//             let next = a + b;
+//             a = b;
+//             b = next;
+//         }, 1000); // Output a Fibonacci number every 1000ms (1 second)
+//     }
     
-    printFibonacci(); // Start printing Fibonacci numbers
+//  //   printFibonacci(); // Start printing Fibonacci numbers
 
     //5 
     //it is failing because we need to use call in order for the object to retain the same context I think
@@ -120,7 +120,46 @@ Function.prototype.delay = function(ms) {
 };
 
 
-function multiply(a, b) {
-    console.log( a * b );
+function multiply(a, b, c, d) {
+    console.log( a * b * c * d);
     }
-    multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
+    multiply.delay(1000)(2, 3, 4, 5); // Prints 120 after 1 second
+
+    //7
+    function Person(name, age, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+      }
+      
+    
+      Person.prototype.toString = function() {
+        return `Name: ${this.name}, Age: ${this.age}, Gender: ${this.gender}`;
+      };
+
+      const person1 = new Person('James Brown', 73, 'male')
+      const person2 = new Person('Edward Elric', 1, 'male')
+console.log('person1: '+person1) //prints person1: [object Object]
+console.log('person2: '+person2) //prints person1: [object Object]
+
+function Student(name, age, gender, cohort) {
+    Person.call(this, name, age, gender); // Inherit properties from Person
+    this.cohort = cohort; // New property for Student
+  }
+  
+  // Inherit Person's prototype
+  //When we create a new constructor function like Student, which extends Person, we want the Student objects to inherit all the methods that Person has (such as toString). 
+  //This is done by linking Student.prototype to Person.prototype. By doing this, any instance of Student will also be able to use the methods defined on Person.prototype
+  Student.prototype = Object.create(Person.prototype);
+  Student.prototype.constructor = Student;
+
+  Student.prototype.toString = function() {
+    return `Name: ${this.name}, Age: ${this.age}, Gender: ${this.gender}, Cohort: ${this.cohort}`;
+  };
+  
+
+  const student1 = new Student('Alphonse Elric', 2, 'male', '2024');
+  const student2 = new Student('Max Buhmann', 29, 'male', '2024');
+  
+  console.log('student1: ' + student1); 
+  console.log('student2: ' + student2);

@@ -163,3 +163,110 @@ function Student(name, age, gender, cohort) {
   
   console.log('student1: ' + student1); 
   console.log('student2: ' + student2);
+
+  //8
+
+  class DigitalClock {
+    constructor(prefix) {
+    this.prefix = prefix;
+    }
+    display() {
+    let date = new Date();
+    //create 3 variables in one go using array destructuring
+    let [hours, mins, secs] = [date.getHours(), date.getMinutes(),
+    date.getSeconds()];
+    if (hours < 10) hours = '0' + hours;
+    if (mins < 10) mins = '0' + mins;
+    if (secs < 10) secs = '0' + secs;
+    console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
+    }
+    stop() {
+    clearInterval(this.timer);
+    }
+    start() {
+    this.display();
+    this.timer = setInterval(() => this.display(), 1000);
+    }
+    }
+    const myClock = new DigitalClock('my clock:')
+    myClock.start()
+
+    //a 
+
+    class PrecisionClock extends DigitalClock { 
+        constructor(prefix, precision = 1000) { // The PrecisionClock constructor calls super(prefix) to inherit the prefix behavior from DigitalClock. Then it assigns the precision value.
+          super(prefix); // Call the parent constructor to initialize 'prefix'
+          this.precision = precision; // Set the precision for interval timing
+        }
+      
+        start() {
+          this.display(); // Display the current time immediately
+          this.timer = setInterval(() => this.display(), this.precision); // Use precision for interval timing
+        }
+      }
+      
+      const preciseClock = new PrecisionClock('Precision clock:', 500); // Ticks every 500ms
+      preciseClock.start();
+
+      //b
+
+      class AlarmClock extends DigitalClock {
+        constructor (prefix, wakeupTime = '07:00'){
+            super(prefix); // Inherit the prefix from DigitalClock
+            this.wakeupTime = wakeupTime; // Set the wakeup time (default to '07:00')
+          }
+          display() {
+            let date = new Date();
+            let [hours, mins] = [date.getHours(), date.getMinutes()];
+        
+            // Format hours and mins to ensure two digits
+            if (hours < 10) hours = '0' + hours;
+            if (mins < 10) mins = '0' + mins;
+        
+            const currentTime = `${hours}:${mins}`;
+        
+            // Check if the current time matches the wakeup time
+            if (currentTime === this.wakeupTime) {
+              console.log('Wake Up');
+              this.stop(); // Stop the clock when the wakeup time is reached
+            } else {
+              console.log(`${this.prefix} ${currentTime}`);
+            }
+          }
+        }
+
+        const alarmClock = new AlarmClock('Alarm clock:', '07:30'); // Set custom wakeup time to 07:30
+        alarmClock.start();
+      
+        //10
+
+        //run 'npm init' and accept all the defaults
+//run 'npm install node-fetch'
+//add this line to package.json after line 5: "type": "module",
+import fetch from 'node-fetch';
+
+globalThis.fetch = fetch; // For node.js environment
+
+async function fetchURLData(url) {
+  try {
+    const response = await fetch(url); // Wait for the fetch request
+    if (response.status === 200) {
+      const data = await response.json(); // Wait for the response to be parsed as JSON
+      return data;
+    } else {
+      throw new Error(`Request failed with status ${response.status}`);
+    }
+  } catch (error) {
+    throw new Error(error.message); // Catch any errors that occur during the fetch process
+  }
+}
+
+// Test the function with a valid URL
+fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
+  .then(data => console.log(data))
+  .catch(error => console.error(error.message));
+
+// Test the function with an invalid URL
+fetchURLData('https://invalid-url.com')
+  .then(data => console.log(data))
+  .catch(error => console.error(error.message));

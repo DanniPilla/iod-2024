@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #e3f2fd;
+        }
+
+        .card {
+            padding: 10px;
+            /* border: ; */
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 3em;
+            padding: 0 0 10px 0;
+        }
+
+        .card-description {
+            font-weight: 400;
+            font-size: 2em
+        }
+
+        .portfolio-container {
+            display: flex;
+        }
+
+        .portfolio-item {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <template id="artists-template">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title"></div>
+                <div class="portfolio-container"></div>
+            </div>
+        </div>
+    </template>
+
+    <template id="portfolio-template">
+        <div class="portfolio-item">
+            <div class="portfolio-item-title"></div>
+            <img class="portfolio-item-image" width="400" />
+        </div>
+    </template>
+
+
+
+
+    <div id="card-list"></div>
+    <script>
+        const artists = [
+            {
+                name: "Van Gogh",
+                portfolio: [
+                    {
+                        title: "portrait",
+                        url: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"
+                    },
+                    {
+                        title: "sky",
+                        url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg"
+                    }
+                ]
+            },
+            {
+                name: "Louise Zhang",
+                portfolio: [
+                    {
+                        title: "Monstrous Masses",
+                        url: "https://artereal.com.au/wp-content/uploads/2016/04/Louise-Zhang-FS-2217.jpg"
+                    },
+                    {
+                        title: "Queen Mother of the West (peaches)",
+                        url: "https://artlogic-res.cloudinary.com/w_1600,h_1600,c_limit,f_auto,fl_lossy,q_auto/artlogicstorage/nsmithgallery/images/view/4f66cd685ae174df0fd51f80bfe024f0j/n.smithgallery-louise-zhang-queen-mother-of-the-west-peaches-2024.jpg"
+                    }
+                ]
+            },
+            {
+                name: "Signe Pierce",
+                portfolio: [
+                    {
+                        title: "AMERICAN REFLEXXX",
+                        url: "https://title-mag.com/wp-content/uploads/2023/03/AmericanReflexxx_3__Alli-Coates-Signe-Pierce-1024x563.jpg"
+                    },
+                    {
+                        title: "untitled",
+                        url: "https://www.teethmag.net/wp-content/uploads/2018/03/Media12_Signe_Pierce_Metamirrorism.jpg"
+                    }
+                ]
+            }
+        ];
+
+        function addArtist(name, portfolio) {
+            // clone template
+            const template = document.getElementById("artists-template").content.cloneNode(true);
+
+            template.querySelector('.card-title').innerText = name
+
+            // add the portfolio
+            portfolio.forEach(item => {
+                const portfolioTemplate = document.getElementById("portfolio-template").content.cloneNode(true)
+
+                // Add title
+                portfolioTemplate.querySelector('.portfolio-item-title').innerText = item.title
+
+                // Add image
+                portfolioTemplate.querySelector(".portfolio-item-image").src = item.url
+
+                // Add image alt tag
+                portfolioTemplate.querySelector(".portfolio-item-image").alt = item.title
+
+                template.querySelector(".portfolio-container").appendChild(portfolioTemplate)
+            })
+
+
+
+
+
+
+
+            document.getElementById('card-list').appendChild(template)
+
+        }
+
+        artists.forEach(artist => {
+            addArtist(artist.name, artist.portfolio);
+        });
+    </script>
+</body>
+
+</html>

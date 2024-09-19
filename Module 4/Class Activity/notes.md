@@ -19,15 +19,13 @@ Lifecycle example. User likes a post. Post goes to the controller aka tha brains
 EXAMPLE:
 function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
+}
 
   - JSX = hybrid of HTML and Javascript. A syntax extension. 
 
+## Bootstrap 
   - Basic structure with a grid system, link styles, and backgrounds etc.
-- CSS: Global CSS settings, the definition of basic HTML element styles,
-extensible classes, and an advanced grid system.
-Components: Bootstrap includes a lot of reusable components for creating
-navigation, menus, cards, pop-up boxes and more.
-JavaScript plugins: Bootstrap includes custom jQuery plugins. We can use
-all the plugins directly, or we can use them one by one.
-Customisation: we can customise Bootstrap components to get our own
-version.
+- CSS: Global CSS settings, the definition of basic HTML element styles, extensible classes, and an advanced grid system.
+- Components: Bootstrap includes a lot of reusable components for creating navigation, menus, cards, pop-up boxes and more.
+- JavaScript plugins: Bootstrap includes custom jQuery plugins. We can use all the plugins directly, or we can use them one by one.
+- Customisation: we can customise Bootstrap components to get our own version.

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <template id="news-template">
+        <div class="card col-8" style="width: 18rem; margin:10px">
+            <div class="card-body">
+                <h5 class="card-title">News title</h5>
+                <p class="card-text">News text.</p>
+            </div>
+        </div>
+    </template>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+ 
+</head>
+<body>
+ <div id="news-container" class="row"></div>
+
+ <form id="news-form">
+    <label for="news-title">News title:</label><br>
+    <input type="text" id="news-title" name="news-title" value="Property Tax canned"><br>
+    <label for="news-content">News content:</label><br>
+    <input type="text" id="news-content" name="news-content" value="The scheme will...">
+  <input type="submit"/>
+</form>
+
+
+<script>
+let news = [
+{ id: 1, title: 'Election Results',
+content: "Newly elected minister..." },
+{ id: 2, title: 'Sporting Success',
+content: "World Cup winners..." },
+{ id: 3, title: 'Tornado Warning',
+content: "Residents should prepare..." }
+];
+
+function getNews() {
+            return new Promise(resolve => {
+                setTimeout(function () {
+                    // resolve the promise with the newsafter 1s
+                    resolve(news)
+                }, 1000)
+            })
+        }
+        // get data asynchronously, then console.log for testing
+        getNews().then((news) => console.log(news))
+        // use carData and getCars function from previous slide
+        // clone, then populate, then append a new template
+        function addNewsCard(news) {
+            const template =
+                document.getElementById("news-template").content.cloneNode(true);
+            template.querySelector('.card-title').innerText = news.title;
+            template.querySelector('.card-text').innerText = news.content;
+            document.querySelector('#news-container').appendChild(template);
+        }
+        // get data asynchronously, then use it to populate a template
+        getNews().then((news) => news.forEach(news => addNewsCard(news)))
+
+function clearNewsContainer(){
+    document.getElementById('news-container').innerHTML='';
+}
+
+function refreshNews(){
+    getNews().then(newsArray => {
+        clearNewsContainer();
+        newsArray.forEach(newsItem => addNewsCard(newsItem));
+    });
+}
+
+setInterval(refreshNews, 5000);
+
+refreshNews();
+
+let newsForm = document.getElementById("news-form")
+
+newsForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const title = document.getElementById('title').value;
+    const content = document.getElementById('content').value;
+
+const newNewsItem={
+    id: news.length +1,
+    title: title,
+    content: content
+};
+
+news.push(newNewsItem);
+
+document.getElementById('title').value = '';
+document.getElementById('content').value = '';
+
+});
+</script>
+</body>
+</html>

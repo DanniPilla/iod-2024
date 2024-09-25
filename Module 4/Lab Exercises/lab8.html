@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/date-fns.min.js" type="module"></script>
+</head>
+<body>
+ 
+    <script type="module">
+       //1
+       import { differenceInDays } from 'https://cdn.jsdelivr.net/npm/date-fns@2.29.3/date-fns.js';
+       const birthDate = new Date('1995-01-02');
+       const currentDate = new Date();
+       const daysDiff = differenceInDays(currentDate, birthDate);
+       console.log(`The difference in days is: ${daysDiff}`);
+       //2
+    </script>
+</body>
+</html>

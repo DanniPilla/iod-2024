@@ -78,8 +78,8 @@ let newsForm = document.getElementById("news-form")
 
 newsForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const title = document.getElementById('title').value;
-    const content = document.getElementById('content').value;
+    const title = document.getElementById('news-title').value;
+    const content = document.getElementById('news-content').value;
 
 const newNewsItem={
     id: news.length +1,
@@ -89,9 +89,10 @@ const newNewsItem={
 
 news.push(newNewsItem);
 
-document.getElementById('title').value = '';
-document.getElementById('content').value = '';
+document.getElementById('news-title').value = '';
+document.getElementById('news-content').value = '';
 
+refreshNews();
 });
 </script>
 </body>

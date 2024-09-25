@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Animation</title>
+    <style>
+        .square {
+            height: 50px;
+            width: 50px;
+            background-color: #ee0505;
+    
+            animation-name: slidein;
+            animation-duration: 3s;
+            animation-iteration-count: 2;
+            animation-direction:alternate;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
+    
+        @keyframes slidein {
+            from {
+                margin-top: 0vh;
+                background-color: #ee0505;
+            }
+    
+            50% {
+                background-color: #2f0dee;
+            }
+    
+            to {
+                margin-top: 100vh;
+                background-color: #2f0dee;
+            }
+        }
+    </style>
+    </head>
+    
+    <body>
+        <div class="square"></div>
+     
+    </body>
+    
+    </html>

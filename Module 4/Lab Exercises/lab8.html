@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/date-fns.min.js" type="module"></script>
+    <title>Lab 8</title>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/dist/date-fns.min.js"></script>
 </head>
+
 <body>
- 
-    <script type="module">
-       //1
-       import { differenceInDays } from 'https://cdn.jsdelivr.net/npm/date-fns@2.29.3/date-fns.js';
-       const birthDate = new Date('1995-01-02');
-       const currentDate = new Date();
-       const daysDiff = differenceInDays(currentDate, birthDate);
-       console.log(`The difference in days is: ${daysDiff}`);
-       //2
+    <script>
+        // 1. 
+        const currentDate = new Date();
+        const birthDate = new Date('1995-01-02');
+        const daysDiff = dateFns.differenceInDays(currentDate, birthDate);
+        console.log(`The difference in days is: ${daysDiff}`);
+
+        // 2.
+        const yearsDiff = dateFns.differenceInYears(currentDate, birthDate);
+        const monthsDiff = dateFns.differenceInMonths(currentDate, birthDate) % 12; //To isolate months after full years, use the modulo operator (%). The 12% gives the remainder after dividing the total months by 12. Represents months left after full years.
+        const remainingDaysDiff = dateFns.differenceInDays(
+            currentDate,
+            dateFns.addMonths(dateFns.addYears(birthDate, yearsDiff), monthsDiff)
+        );
+        console.log(`${yearsDiff} years, ${monthsDiff} months, and ${remainingDaysDiff} days`);
+
+        // 3. 
+        const date1 = new Date('2024-01-01');
+        const date2 = new Date('2023-10-01');
+        const closestDate = dateFns.isBefore(date1, date2) ? date2 : date1; //boolean
+        console.log(`The date closest to the current date is: ${closestDate}`);
+
+        // 4. 
+        const isDate1BeforeDate2 = dateFns.isBefore(date1, date2);
+        console.log(`The first date is ${isDate1BeforeDate2 ? 'before' : 'after'} the second date`);
+
+        // 5. 
+        const londonTime = dateFns.format(new Date(), 'yyyy-MM-dd HH:mm:ssXXX', { timeZone: 'Europe/London' });
+        console.log(`The current time in London is: ${londonTime}`);
     </script>
 </body>
+
 </html>

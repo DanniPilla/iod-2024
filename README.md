@@ -67,3 +67,7 @@ Update = Put/ update resource
 Delete =  delete resource
 
 Query Params and root params. Root 
+
+Three clients, one for those who work for u, one UI for app owners, one for clients
+
+RTT Round trip time. Common metric for website effectiveness

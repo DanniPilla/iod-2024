@@ -18,6 +18,7 @@ let myChart = echarts.init(document.getElementById('main'));
         // Specify the configuration items and data for the chart
         let options = {
             title: { text: 'Fake Store Categories' },
+            tooltip: {},
             xAxis: {
                 data: ['Category 1', 'Category 2', 'Category 3', 'Category 4']
             },
@@ -37,6 +38,9 @@ let myChart = echarts.init(document.getElementById('main'));
                     let category = product.category;
                     categoryStock[category]
                 })
+
+                options.xAxis.data = Object.keys(categoryStock); // that displays the name of the object
+                options.yAxis.data = Object.values(categoryStock); // That displays the number because it is value
             })
             .then(() => {
                 // Display the chart

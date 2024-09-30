@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eCharts</title>
+    <title>eChartss</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
 </head>
 
@@ -13,6 +13,8 @@
     <!-- Prepare a DOM with a defined width and height for ECharts -->
     <div id="main" style="width: 900px;height:600px;"></div>
     <script type="text/javascript">
+
+let myChart = echarts.init(document.getElementById('main'));
         // Specify the configuration items and data for the chart
         let options = {
             title: { text: 'Fake Store Categories' },
@@ -28,16 +30,19 @@
         };
         fetch('https://fakestoreapi.com/products')
             .then((response) => response.json())
-            .then((json) => {
-                console.log(json)
-                // use this JSON to find and set correct option data for the chart
+            .then(products => {
+                let categoryStock = {};
+
+                products.forEach(product => {
+                    let category = product.category;
+                    categoryStock[category]
+                })
             })
             .then(() => {
                 // Display the chart
                 myChart.setOption(options);
             })
-        // Initialise the echarts instance based on the prepared div
-        let myChart = echarts.init(document.getElementById('main'));
+
     </script>
 </body>
 

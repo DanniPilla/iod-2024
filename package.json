@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "date-fns": "^4.1.0",
+    "echarts": "^5.5.1",
     "node-fetch": "^3.3.2"
   }
 }

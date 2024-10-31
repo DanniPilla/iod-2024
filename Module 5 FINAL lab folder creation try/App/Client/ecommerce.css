@@ -1,0 +1,54 @@
+body {
+    background-color: #f9f3f9; 
+    font-weight: bold;
+}
+
+/* Navbar decorations */
+
+.navbar {
+    background-color: #fff0f6; 
+    border-bottom: 2px solid #ffccff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-bottom: 50px;
+}
+
+.navbar-brand {
+    color: #f758ba; 
+    font-size:xx-large;
+    margin-left: 20px;
+}
+
+/* Button decorations */
+.btn-outline-success, .btn.btn-secondary,.btn.btn-primary.dropdown-toggle {
+    background-color: #ffccff; 
+    font-weight: bold;
+    color:#f758ba;
+    border-color: #f758ba;
+    margin-right: 5px;
+}
+
+.btn-outline-success:hover, .btn.btn-secondary:hover, .btn.btn-primary.dropdown-toggle:hover {
+    background-color: #f758ba; 
+    color: white;
+}
+
+/* Category decorations */
+
+
+.dropdown-menu {
+    background-color: #f9f3f9; 
+}
+
+/* Card Decorations */
+.card {
+    border-radius: 15px; 
+    box-shadow: 0 4px 10px #f758ba;
+    position: relative;
+}
+
+.card-title, .card-text {
+    color: #6a6a6a;
+}
+

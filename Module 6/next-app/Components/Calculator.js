@@ -2,13 +2,18 @@
 import { useState } from "react";
 
 export const Calculator = () => {
-  const [num1, setNum1] = useState("");
-  const [num2, setNum2] = useState("");
-  const [operator, setOperator] = useState("");
+  const [num1, setNum1] = useState("1");
+  const [num2, setNum2] = useState("1");
+  const [operator, setOperator] = useState("+");
   const [result, setResult] = useState(null);
 
   const handleCalculate = (e) => {
     e.preventDefault();
+
+    if (!num1 || !num2 || !operator) {
+      setResult("Please fill in numbers and select an operator");
+      return;
+    }
 
     const number1 = parseFloat(num1);
     const number2 = parseFloat(num2);
@@ -27,6 +32,9 @@ export const Calculator = () => {
       case "/":
         res = number1 / number2;
         break;
+
+      default:
+        res = "Invalid operator";
     }
     setResult(res);
   };
@@ -35,7 +43,7 @@ export const Calculator = () => {
       <h1 className="text-4xl font-bold pt-4 m-4 text-pink-700">
         Lets Calculate!
       </h1>
-      <form onSubmit={handleCalculate}>
+      <form>
         <label>
           <input
             type="number"
@@ -62,7 +70,10 @@ export const Calculator = () => {
           />
         </label>
       </form>
-      <button className="mt-4 bg-pink-400 text-white  hover:bg-pink-500 p-2 rounded">
+      <button
+        onClick={handleCalculate}
+        className="mt-4 bg-pink-400 text-white  hover:bg-pink-500 p-2 rounded"
+      >
         Calculate
       </button>
       <h2 className="text-2xl font-bold pb-4 m-4 text-pink-700">

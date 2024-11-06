@@ -1,3 +1,6 @@
+import { useState } from "react";
+import {useInputForm} from "../hooks/UseFormInput"
+
 export default function SubscribeForm() {
 const [status, setStatus] = useState('');
 // similar state variables mapped to form inputs
@@ -10,6 +13,7 @@ function handleSubscribe() {
 setFirstName(''); setEmail('');
 setStatus('Thanks for subscribing!')
 }
+
 return (
 <div className="SubscribeForm componentBox">
 <label>First name: {/* form inputs with similar props */}

@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { useUserContext } from "../context/UserContext"
+import { useContext } from "react";
+import {MyThemeContext} from '../context/MyThemeContext'
+import ThemeSwitcher from '../components/ThemeSwitcher'
+
 function LoginForm() {
+  const {theme, darkMode} = useContext(MyThemeContext);
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [submitResult, setSubmitResult] = useState("");
@@ -29,8 +34,13 @@ function LoginForm() {
         <button onClick={() => handleUpdateUser({})}>Log Out</button>
       </>
     );
+
+    
   return (
-    <div>
+
+    <div className="LoginForm componentBox"
+style={{background: theme.background, color: theme.foreground}}>
+      <ThemeSwitcher/>
       <form onSubmit={handleSubmit}>
         <div>
           <label>

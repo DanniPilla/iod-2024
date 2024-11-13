@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-
+import {useEmojiContext} from "../context/EmojiContext"
 
 const currencies = ['USD', 'AUD', 'NZD', 'GBP', 'EUR', 'SGD'];
 
 export function BitcoinRates() {
 const [currency, setCurrency] = useState(currencies[0]);
 const [bitcoinPrice, setBitcoinPrice] = useState("");
+const {emoji}=useEmojiContext();
 
 useEffect(() => {
 console.log('running effect');
@@ -32,6 +33,7 @@ const options = currencies.map(curr => <option value={curr} key={curr}>{curr}</o
 return (
 <div className="BitcoinRates componentBox">
 <h3>Bitcoin Exchange Rate</h3>
+<p>{emoji}</p>
 <label>Choose currency:
 <select value={currency} onChange={e => setCurrency(e.target.value)}>
 {options}

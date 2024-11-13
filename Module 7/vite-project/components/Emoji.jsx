@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useEmojiContext } from "../Context/EmojiContext";
+import { useEmojiContext } from "../context/EmojiContext"
 function EmojiChanger() {
   const { emoji, setEmoji } = useEmojiContext();
 

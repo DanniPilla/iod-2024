@@ -7,20 +7,33 @@ import { RefCounter } from '../components/RefCounter'
 import VideoPlayer from '../components/VideoPlayer'
 import  ReducerCounter  from '../components/ReducerCounter'
 import PostListState from '../components/PostListState'
-import SubscribeForm from '../components/SubscribeForm'
+import WeatherSearch from '../components/WeatherSearch'
+import { EmojiChanger } from "../components/Emoji"
+import { EmojiProvider } from "../context/EmojiContext"
+import { UserProvider } from "../context/UserContext"
+import { LoginForm } from "../components/LoginForm"
+// import SubscribeForm from '../components/SubscribeForm'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <EmojiProvider>
+      <EmojiChanger/>
+       <BitcoinRates/>
+</EmojiProvider>
+      <UserProvider>
+        <LoginForm />
+      </UserProvider>
     <RefCounter/>
      <ClockDisplay/>
      <ActivityFinder/>
-     <BitcoinRates/>
      <VideoPlayer/>
      <ReducerCounter/>
      <PostListState/>
-     <SubscribeForm/>
+     <WeatherSearch/>
+     
+     {/* <SubscribeForm/> */}
     </>
   )
 }

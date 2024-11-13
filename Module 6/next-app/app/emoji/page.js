@@ -1,10 +1,14 @@
-import EmojiChanger from "@/Components/Emoji";
+"use client";
+import { EmojiChanger } from "@/Components/Emoji";
+import { EmojiProvider } from "@/Context/EmojiContext";
 
 function Page() {
   return (
     <div>
       <h1>Emoji changer</h1>
-      <EmojiChanger />
+      <EmojiProvider>
+        <EmojiChanger />
+      </EmojiProvider>
     </div>
   );
 }

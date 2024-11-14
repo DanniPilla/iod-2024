@@ -1,31 +1,43 @@
 // hooks are usually named exports rather than default
 
 import {useState, useEffect} from "react"
-export function useBitcoinData(url) {
+export function useBitcoinData(currency) {
 // state variable for holding fetched json data
-const [data, setData] = useState(null);
+const [bitcoinPrice, setBitcoinPrice] = useState("");
 const [isLoading, setIsLoading]=useState(true);
 const [error, setError] = useState(null)
 
 useEffect(() => {
-if (url) {
+
+const url =`https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${currency}`
+
 let ignore = false;
+setIsLoading(true);
+setError(null)
 
 fetch(url)
-.then(response => response.json())
-.then(json => {
+.then((response) => response.json())
+.then((json) => {
+     console.log('API response:', json);
 if (!ignore) {
-setData(json);
+    setBitcoinPrice(json.bitcoin[currency.toLowerCase()]);
+setIsLoading(false);
 }
+})
+.catch((err)=> {
+    if (!ignore){
+        setError(err.message);
+        setIsLoading(false);
+    }
 });
 
-// cleanup function, in case url changes before complete
+// cleanup function - runs when unmounted or dependencies change
 return () => {
-ignore = true;
+ignore = true; // ignore now invalid fetch results
+console.log('cleanup effect');
 };
-}
-}, [url]); // re-run effect if url changes
+}, [currency]); // re-run effect if url changes
 
 // return the data fetched from the given url
-return data;
+return {bitcoinPrice, isLoading, error};
 }

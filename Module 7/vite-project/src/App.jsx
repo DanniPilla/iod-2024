@@ -13,6 +13,8 @@ import { EmojiProvider } from "../context/EmojiContext"
 import { UserProvider } from "../context/UserContext"
 import { LoginForm } from "../components/LoginForm"
 import MyThemeProvider from '../context/MyThemeContext'
+import AppRoutes from '../routes/AppRoutes'
+import NavBar from '../components/NavBar'
 // import SubscribeForm from '../components/SubscribeForm'
 function App() {
   const [count, setCount] = useState(0)
@@ -22,7 +24,9 @@ function App() {
     <MyThemeProvider>
     <EmojiProvider>
        <UserProvider>
-      <EmojiChanger/>
+        <NavBar/>
+        <AppRoutes/>
+      {/* <EmojiChanger/>
        <BitcoinRates/>
       <LoginForm />
     <RefCounter/>
@@ -30,7 +34,7 @@ function App() {
      <VideoPlayer/>
      <ReducerCounter/>
      <PostListState/>
-     <WeatherSearch/>
+     <WeatherSearch/> */}
       </UserProvider>
      </EmojiProvider>
      </MyThemeProvider>

@@ -1,5 +1,12 @@
 
-import {Routes, route} from "react-router-dom"
+import {Routes, Route} from "react-router-dom"
+// import Homepage from "../pages/Homepage"
+// import AboutPage from "../pages/AboutPage"
+import PageNotFound from "../pages/PageNotFound"
+import DashboardPage from "../pages/DashboardPage"
+    import {DashboardMessages, DashboardTasks} from "../pages/DashboardPage"
+import Homepage from "../pages/Homepage"
+import AboutPage from "../pages/AboutPage"
 function AppRoutes(props) {
 
 return (

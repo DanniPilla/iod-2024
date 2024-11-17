@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import {useEmojiContext} from "../context/EmojiContext"
 import { useBitcoinData } from "../hooks/useBitcoinData";
+import { TextField, Checkbox, Select, MenuItem, Button } from "@mui/material";
+import { FormControl, FormControlLabel, InputLabel } from "@mui/material";
 const currencies = ['USD', 'AUD', 'NZD', 'GBP', 'EUR', 'SGD'];
 
 export function BitcoinRates() {
@@ -17,9 +19,9 @@ return (
 <h3>Bitcoin Exchange Rate</h3>
 <p>{emoji}</p>
 <label>Choose currency:
-<select value={currency} onChange={e => setCurrency(e.target.value)}>
+<Select value={currency} onChange={e => setCurrency(e.target.value)}>
 {options}
-</select>
+</Select>
 </label>
 
 {isLoading ? (

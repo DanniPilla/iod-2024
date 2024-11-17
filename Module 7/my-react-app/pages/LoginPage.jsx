@@ -3,6 +3,8 @@ import { useUserContext } from "../context/UserContext"
 import { useContext } from "react";
 import {MyThemeContext} from '../context/MyThemeContext'
 import ThemeSwitcher from '../components/ThemeSwitcher'
+import { TextField, Checkbox, Select, MenuItem, Button } from "@mui/material";
+import { FormControl, FormControlLabel, InputLabel } from "@mui/material";
 
 function LoginForm() {
   const {theme, darkMode} = useContext(MyThemeContext);
@@ -43,7 +45,7 @@ style={{background: theme.background, color: theme.foreground}}>
       <ThemeSwitcher/>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>
+          <InputLabel>
             Email:
             <input
               type="email"
@@ -51,10 +53,10 @@ style={{background: theme.background, color: theme.foreground}}>
               onChange={(e) => setUserEmail(e.target.value)}
               required
             />
-          </label>
+           </InputLabel>
         </div>
         <div>
-          <label>
+          <InputLabel>
             Password:
             <input
               type="password"
@@ -62,9 +64,9 @@ style={{background: theme.background, color: theme.foreground}}>
               onChange={(e) => setUserPassword(e.target.value)}
               required
             />
-          </label>
+          </InputLabel>
         </div>
-        <button type="submit">Login</button>
+       <Button variant="contained">Submit</Button>
       </form>
       {submitResult && <p>{submitResult}</p>}
     </div>

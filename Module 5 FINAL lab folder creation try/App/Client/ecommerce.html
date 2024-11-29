@@ -84,7 +84,7 @@
             jewelry: "fas fa-gem",
         };
         function fetchPosts() {
-            fetch('/api/products')
+            fetch('https://fakestoreapi.com/products')
                 .then(response => response.json())
                 .then(posts => {
                     //  the second time you use .then(), you are defining the name of the variable that will hold the array 

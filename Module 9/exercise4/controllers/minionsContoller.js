@@ -16,7 +16,7 @@ const getAllMinions = async (req, res) => {
 // uses JSON from request body to create new user in DB
 const getMinionsById = async (req, res) => {
   const { id } = req.params;
-  const url = `https://ffxivcollect.com/api/minions${id}`;
+  const url = `https://ffxivcollect.com/api/minions/${id}`;
   const { data, error } = await fetchData(url);
 
   if (error) {

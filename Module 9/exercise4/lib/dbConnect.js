@@ -1,7 +1,6 @@
-const fetch = "node-fetch";
-
 const fetchData = async (url) => {
   try {
+    const fetch = (await import("node-fetch")).default;
     const response = await fetch(url);
     const data = await response.json();
     return { data, error: null };

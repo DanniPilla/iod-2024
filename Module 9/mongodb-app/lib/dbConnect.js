@@ -1,8 +1,8 @@
 "use strict";
 const Mongoose = require("mongoose");
 // if the connection fails, try 127.0.0.1 instead of localhost below
-let dbConnect = require("./lib/dbConnect");
 const uri = process.env.DB_URI || "mongodb://localhost/newDB";
+
 // Connect to MongoDB
 Mongoose.connect(uri)
   .then(() => console.log("MongoDB Connected"))

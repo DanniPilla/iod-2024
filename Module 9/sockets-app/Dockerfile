@@ -3,5 +3,4 @@ WORKDIR /app
 COPY . .
 EXPOSE 8080
 RUN npm install
-RUN npm install -g nodemon
 CMD ["npm","start" ]
